@@ -17,8 +17,7 @@ def check_continuous_respect_sma(stock_data, sma_list=[34, 50, 55, 89, 100, 144,
             candle = stock_data.iloc[i]
             current_sma = sma.iloc[i]
 
-            # Check if all conditions are true (for Open, High, Low, and Close to be below SMA)
-            if ((candle[['Open', 'High', 'Low', 'Close']] < current_sma).all()):
+            if candle['Open'] < current_sma and candle['High'] < current_sma and candle['Low'] < current_sma and candle['Close'] < current_sma:
                 respected_continuously = False
                 break  
         if respected_continuously:
