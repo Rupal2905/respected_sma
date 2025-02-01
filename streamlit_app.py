@@ -40,7 +40,7 @@ def main():
 
     stock_symbols = ['MAXHEALTH.NS', 'ACC.NS', 'TCS.NS', 'FCL.NS', 'SBIN.NS', 'BEL.NS', 'AXISBANK.NS',
                      'INFY.NS', 'TCS.NS', 'LT.NS',
-                     'SRF.NS', 'BAJAJFINSV.NS', 'KOTAKBANK.NS', 'ZOMATO.NS', 'IRFC.NS', 'ADANINENT.NS',
+                     'SRF.NS', 'BAJAJFINSV.NS', 'KOTAKBANK.NS', 'ZOMATO.NS', 'IRFC.NS', 'ADANIENT.NS',
     ]
 
     # User inputs
