@@ -6,8 +6,7 @@ import streamlit as st
 def get_sma(stock_data, period):
     return stock_data['Close'].rolling(window=period).mean()
 
-def check_continuous_respect_sma(stock_data, sma_list=[20, 34, 40, 50, 55, 65, 70, 89, 100, 120, 144, 180, 
-                                                       200, 233], candle_timeframe='1d'):
+def check_continuous_respect_sma(stock_data, sma_list=[34, 50, 55, 89, 100, 144, 200, 233], candle_timeframe='1d'):
     respected_smas = []
 
     for period in sma_list:
@@ -41,7 +40,10 @@ def check_continuous_respect_sma(stock_data, sma_list=[20, 34, 40, 50, 55, 65, 7
 def main():
     st.title("Stock Analysis - SMA Respect Checker")
 
-    stock_symbols_input = st.text_input("Enter stock symbols (comma-separated, e.g., 'MAXHEALTH.NS, ZOMATO.NS')", "MAXHEALTH.NS, ZOMATO.NS")
+    stock_symbols_input =  st.selectbox("Select symbol", ['MAXHEALTH.NS', 'ZOMATO.NS', 'AARTIIND.NS', 'ABB.NS', 'ABBOTINDIA.NS', 'ABCAPITAL.NS',
+                                                         'ABFRL.NS', 'ACC.NS', 'ADANIENSOL.NS', 'ADANIENT.NS', 'ADANIGREEN.NS', 'INDIGO.NS',
+                                                         'ALKEM.NS', 'AMBUJACEM.NS', 'ANGELONE.NS', 'APLAPOLLO.NS', 'ASTRAL.NS', 'ATGL.NS',
+                                                         'BRITANNIA.NS', 'CANBK.NS', 'CIPLA.NS', 'COALINDIA.NS', 'DABUR.NS', 'IGL.NS', ])
     stock_symbols = stock_symbols_input.split(",") 
     stock_symbols = [symbol.strip() for symbol in stock_symbols]
 
@@ -52,7 +54,7 @@ def main():
     start_date_str = start_date.strftime("%Y-%m-%d")
     end_date_str = end_date.strftime("%Y-%m-%d")
 
-    extended_start_date = start_date - timedelta(days=3650)
+    extended_start_date = start_date - timedelta(days=365)
     extended_start_date_str = extended_start_date.strftime("%Y-%m-%d")
 
     if st.button("Analyze Stocks"):
