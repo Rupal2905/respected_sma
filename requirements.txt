@@ -1,4 +1,5 @@
-streamlit
-yfinance
-pandas
 datetime
+pandas==1.5.3
+yfinance==0.2.20
+numpy==1.23.3
+streamlit==1.17.0
